@@ -8,7 +8,7 @@ template '/etc/ntp.conf' do
   notifies :restart, "service[ntpd]"
 end
 
-excute 'ntpdate ntp.nict.jp' do
+execute 'ntpdate ntp.nict.jp' do
   not_if 'service ntpd status'
   command 'ntpdate -d ntp.nict.jp'
 end
