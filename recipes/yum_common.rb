@@ -2,6 +2,13 @@
 
 package 'yum-utils'
 
+define :enable_repo do
+  repo_name = params[:name]
+  execute "enable_repo #{repo_name}" do
+    command "yum-config-manager --enable #{repo_name}"
+  end
+end
+
 define :disable_repo do
   repo_name = params[:name]
   execute "disable_repo #{repo_name}" do
