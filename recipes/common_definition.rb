@@ -15,3 +15,10 @@ define :install_and_enable_and_start_package do
     action [:enable,:start]
   end
 end
+
+define :disable_daemon do
+  daemon  = params[:name]
+  service daemon do
+    action [:stop, :disable]
+  end
+end
