@@ -1,0 +1,3 @@
+# OS reboot
+
+execute 'reboot'
