@@ -1,11 +1,16 @@
 {
-	"os": {
-		"hostname": "itamae.youyo.info"
-	},
-	"kvm": {
-		"nic": [
-			["eth0","192.168.5.91","255.255.255.0","192.168.5.1"],
-			["eth1","10.0.0.91","255.0.0.0"]
-		]
-	}
+"os": {
+	"hostname": "itamae.youyo.info",
+	"user": [
+		["root","$1$liK0BakL$R3t7gfa4cJDxe.mH.klu51","/root"],
+		["admin","$1$hashed_pass","/home/admin",true,{"generate":true, "keypass":"secretpass"}],
+		["webadmin","$1$hashed_pass","/home/webadmin",false,{"generate":false, "publickey":"ssh-rsa AAAAB3NzaC1yc2EAAAADA"}]
+	]
+},
+"kvm": {
+	"nic": [
+		["eth0","192.168.5.91","255.255.255.0","192.168.5.1"],
+		["eth1","10.0.0.91","255.0.0.0"]
+	]
+}
 }

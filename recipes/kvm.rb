@@ -5,12 +5,10 @@
   @base @development @virtualization @virtualization-client
   @virtualization-platform @virtualization-tools @x-window-system
   @desktop @japanese-support
-).each do |pkg|
-  package pkg
-end
+).each {|pkg| package pkg}
 
 node[:kvm][:nic].each_with_index do |nic,index|
-  execute "set_nic:#{nic[0]}" do
+  execute "set_interface:#{nic[0]}" do
     command "
 cat <<EOL> /etc/sysconfig/network-scripts/ifcfg-#{nic[0]}
 DEVICE=#{nic[0]}
@@ -23,7 +21,7 @@ EOL
 
   case nic.size
   when 4
-    execute "set_bridge:br#{index}" do
+    execute "set_interface:br#{index}" do
       command "
 cat <<EOL> /etc/sysconfig/network-scripts/ifcfg-br#{index}
 BOOTPROTO=none
@@ -38,7 +36,7 @@ EOL
       "
     end
   when 3
-    execute "set_bridge:br#{index}" do
+    execute "set_interface:br#{index}" do
       command "
 cat <<EOL> /etc/sysconfig/network-scripts/ifcfg-br#{index}
 BOOTPROTO=none
@@ -56,10 +54,7 @@ end
 
 template '/etc/init.d/vncserver' do
   source './templates/kvm_vncserver.erb'
-end
-
-execute 'chmod 755 /etc/init.d/vncserver' do
-  
+  notifies :run, "execute[chmod 755 /etc/init.d/vncserver]"
 end
 
 directory '/root/.vnc'

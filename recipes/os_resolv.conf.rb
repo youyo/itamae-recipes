@@ -1,3 +1,3 @@
 template '/etc/resolv.conf' do
-  source 'resolv.conf.erb'
+  source './templates/resolv.conf.erb'
 end
