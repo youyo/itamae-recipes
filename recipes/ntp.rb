@@ -8,6 +8,10 @@ execute 'ntpdate ntp.nict.jp' do
   command 'ntpdate -d ntp.nict.jp'
 end
 
+execute 'service ntpd restart' do
+  action :nothing
+end
+
 template '/etc/ntp.conf' do
   source './templates/ntp.conf.erb'
   notifies :run, "execute[service ntpd restart]"

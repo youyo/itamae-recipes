@@ -22,11 +22,3 @@ define :disable_daemon do
     action [:stop, :disable]
   end
 end
-
-define :disable_and_stop_package do
-  pkg = params[:name]
-  package pkg
-  service pkg do
-    action [:disable,:stop]
-  end
-end

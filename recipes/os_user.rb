@@ -41,6 +41,7 @@ node[:os][:user].each do |userdata|
           echo '#{userdata[4]["publickey"]}' >> #{userdata[2]}/.ssh/authorized_keys
           chmod 700 #{userdata[2]}/.ssh
           chmod 600 #{userdata[2]}/.ssh/authorized_keys
+          chown -R #{userdata[0]}: #{userdata[2]}/.ssh
         "
       end
     end

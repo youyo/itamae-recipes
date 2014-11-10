@@ -1,5 +1,5 @@
 # disable iptables
 
 package 'iptables'
-disable_and_stop_package 'iptables'
-disable_and_stop_package 'ip6tables'
+disable_daemon 'iptables'
+disable_daemon 'ip6tables'
