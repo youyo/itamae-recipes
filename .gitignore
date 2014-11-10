@@ -4,4 +4,3 @@ Gemfile.lock
 test/
 vendor/
 *.swp
-bin/
