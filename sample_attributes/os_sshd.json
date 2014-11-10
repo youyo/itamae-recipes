@@ -1,0 +1,9 @@
+{
+"os": {
+	"sshd": {
+		"port": "22",
+		"permitrootlogin": "no",
+		"passwordauth": "no"
+	}
+}
+}

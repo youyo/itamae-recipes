@@ -4,6 +4,11 @@
 	"user": [
 		["root","$1$yrFzWXxf$Xk1RuO21Rj9KQkuKfOvx/.","/root",false],
 		["admin","$1$yrFzWXxf$Xk1RuO21Rj9KQkuKfOvx/.","/home/admin",true,{"generate":true, "keypass":"secretpass"}]
-	]
+	],
+	"sshd": {
+		"port": "22",
+		"permitrootlogin": "no",
+		"passwordauth": "no"
+	}
 }
 }
