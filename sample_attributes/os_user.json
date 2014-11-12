@@ -1,9 +1,9 @@
 {
 "os": {
 	"user": [
-		["root","$1$password","/root",false],
-		["admin","$1$password","/home/admin",true,{"generate":true, "keypass":"secretpass"}],
-		["webadmin","$1$password","/home/webadmin",false,{"generate":false, "publickey":"ssh-rsa AAAAB3NzaC1yc2EAAAADA"}]
+		["root","clear_password","/root",false],
+		["admin","clear_password","/home/admin",true,{"generate":true, "keypass":"secretpass"}],
+		["webadmin","clear_password","/home/webadmin",false,{"generate":false, "publickey":"ssh-rsa AAAAB3NzaC1yc2EAAAADA"}]
 	]
 }
 }

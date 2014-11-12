@@ -13,6 +13,5 @@ num_times.times{
       pass += "#{list[rand_num]}"
     }
   end
-  puts "clear pass:\t#{pass}"
-  puts "hashed pass:\t#{`openssl passwd -1 #{pass}`}"
+  puts "pass:\t#{pass}"
 }

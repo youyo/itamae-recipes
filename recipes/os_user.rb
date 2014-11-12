@@ -15,8 +15,11 @@ node[:os][:user].each do |userdata|
 
   user userdata[0] do
     action :create
-    password userdata[1]
     home userdata[2]
+  end
+
+  execute "set_passwd #{userdata[0]}" do
+    command "echo '#{userdata[0]}:#{userdata[1]}'|chpasswd"
   end
 
   set_sudo userdata[0] if userdata[3]
